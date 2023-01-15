@@ -1,22 +1,37 @@
 class Basket{
     constructor() {
-        this.items = [];
-        this.basketValue = 0;
-    }
+        this.items = this.loadFromLocalStorage() ?? [];
+
+        //?? - nullish operator, here will for like ||
+        // const ls = this.loadFromLocalStorage();
+        
+        // this.items = ls || []; // ls ? ls : [];
+
+    // this.items = ls ? ls : [];
+
+    // if(ls) {
+    //         this.items=ls;
+    // } else {
+    //     this.items =[];
+    // }
+        }
 
     add(item) {
         this.items.push(item);
         this.addToBasketValue(item.price);
+        this.saveToLocalStorage();
     }
 
     clear() {
         this.items.lenght = 0;
         //this.items.splice(0);
         //this.items = [];
+        this.saveToLocalStorage();
     }
 
     addToBasketValue(newPrice){
         this.basketValue = this.basketValue + newPrice;
+        this.saveToLocalStorage();
     }
 
     getTotalValue() {
@@ -35,7 +50,16 @@ class Basket{
 
     removeProduct(no) {
         this.items.splice(no -1, 1);
+        this.saveToLocalStorage();
     }
+
+    saveToLocalStorage() {
+        localStorage.setItem('basket-items', JSON.stringify(this.items));
+    };
+
+    loadFromLocalStorage() {
+        return JSON.parse(localStorage.getItem('basket-items'));
+    };
 };
 
 class Product {
@@ -43,7 +67,5 @@ class Product {
         this.name = productName;
         this.price = productPrice;
     }
-
-
 };
 

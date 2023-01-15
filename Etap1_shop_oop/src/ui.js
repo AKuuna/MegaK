@@ -63,6 +63,7 @@ for (const btn of buyBtns) {
 
 buyAllBtn.addEventListener('click', buyAllProducts);
 
+createBasketUi();
 
 //Other approach for loop
 // buyBtns.forEach(btn => {
