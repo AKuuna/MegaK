@@ -1,0 +1,27 @@
+{
+  "name": "day24_eslinter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "set_map_day_24.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/eslint-parser": "^7.19.1",
+    "eslint": "^8.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "standardx": "^7.0.0",
+    "babel": {},
+"eslintConfig": { "parser": "@babel/eslint-parser",
+"parserOptions": {
+"sourceType": "module",
+"allowImportExportEverywhere": true
+}
+}
+  }
+}
+
