@@ -23,19 +23,18 @@ try {
 
 (async() => {
     try {
-        const res = await fetch('...');
+        throw new Error ('Oh no!!');
+        const res = await fetch('https://yxz');
     } catch (error) {
-        console.log('something went wrong', error.message);
+        if(error instanceof TypeError) {
+            console.log('Error in fetch - invalid data');
+        } else {
+            console.log('Unidentified error, ', error.message);
+        }
     } finally {
         console.log('fetch has finished');
     }
-
 }) ();
-
-
-
-
-
 
 //try .. catch
 // try {
